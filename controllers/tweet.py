@@ -9,9 +9,7 @@ def add_message():
         abort(401)
     if request.form['text']:
         db = functions.get_db()
-        db.execute('''insert into message (author_id, text, pub_date)
-          values (?, ?, ?)''', (session['user_id'], request.form['text'],
-                                int(time.time())))
+        #db.execute()
         db.commit()
         flash('Your message was recorded')
     return redirect(functions.url_for('/'))
